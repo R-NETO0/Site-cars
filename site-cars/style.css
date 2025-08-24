@@ -1,4 +1,4 @@
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,37 +9,58 @@
 body {
     background-color: #000;
     color: #fff;
-    font: 16px;
+    font-size: 16px;
     overflow: hidden;
 }
 
 header {
+    background-color: #00000085;
+    box-shadow: 0px 0px 8px #00eeff; 
+    height: 10vh;
     position: fixed;
-    width: 80vw;
-    left: 50%;
-    transform: translateX(-50%);
-    display: grid;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    grid-template-columns: 1fr 600px;
-    gap: 40%;
+    padding: 0 40px;
     z-index: 2;
 
-
-
     & img {
-        width: 250px;
+        width: 120px;
     }
 
     & nav {
         & ul {
-            display: grid;
-            grid-template-columns: repeat(3, 200px);
+            display: flex;
+            gap: 70px;
+
+            & li {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+
+                & i {
+                    padding: 15px;
+                    color: #00eeff; 
+                }
+
+                & input {
+                    padding: 5px;
+                    border: 1px solid #00eeff; 
+                    border-radius: 10px;
+                    outline: none;
+                    background-color: #001a1a;
+                }
+            }
         }
     }
 }
 
 section {
-    background-image: radial-gradient(#7f3d9e, #6d00d9);
+    background-image: radial-gradient(#004c80, #001a33); 
     height: 100vh;
     position: relative;
 
@@ -48,6 +69,16 @@ section {
         height: 100%;
         margin: auto;
         position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 200px;
+            width: 100%;
+            top: 50%;
+            border-top: 1px solid #00eeff; 
+            z-index: 0;
+        }
 
         & .item {
             position: absolute;
@@ -59,7 +90,6 @@ section {
                 transform: translateY(-50%);
                 width: 70%;
 
-
                 & img {
                     width: 100%;
                     transform: rotate(-30deg);
@@ -68,13 +98,14 @@ section {
                 &::before {
                     content: '';
                     position: absolute;
-                    background-color: #000;
+                    background-color: #00eeff;
                     width: 100%;
                     height: 100px;
                     top: 150%;
                     left: 58px;
-                    border: 50%;
+                    border-radius: 50%;
                     filter: blur(50px);
+                    opacity: 0.7;
                 }
             }
 
@@ -91,17 +122,22 @@ section {
 
                 & .car-information {
                     font-weight: bold;
+                    color: #00eeff; 
                 }
 
                 & h2 {
-                    font-size: 6em;
-                    line-height: 1em;
+                    font-size: 4em;
+                    line-height: 0.5em;
                     font-family: "League Gothic", sans-serif;
                 }
 
+                & p {
+                    color: #00eeff; 
+                }
+
                 & .description {
-                    color: #9b9b9b;
-                    font-size: 12px;
+                    color: #c5c5c5;
+                    font-size: 10px;
                     text-align: right;
                     max-width: 400px;
                 }
@@ -111,73 +147,70 @@ section {
                     height: 35px;
                     width: 120px;
                     text-transform: uppercase;
-                    border: 2px solid #791fd3;
-                    background-color: #beff1b;
+                    border: 2px solid #00eeff; 
+                    background-color: #00c4ff; 
                     color: #000;
                     cursor: pointer;
                     font-weight: bold;
                     font-family: "League Gothic", sans-serif;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: #00c4ff;
+                        transform: scale(1.05);
+                        box-shadow: 0 0 15px #00eeff; 
+                    }
                 }
             }
         }
-
-        &::before {
-            content: '';
-            position: absolute;
-            height: 200px;
-            width: 100%;
-            top: 50%;
-            border-top: 1px solid #fff;
-        }
     }
 
-
-
-
-
-
-    .arrows {
-
-
+    & .arrows {
         width: 70vw;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -25px);
+        transform: translate(-50%, -50%);
         display: flex;
         justify-content: space-between;
-
-
-        & button:nth-child(1) {
-            & img {
-                transform: scale(-1);
-            }
-        }
+        align-items: center;
+        z-index: 1;
 
         & button {
-            top: 60%;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: none;
             cursor: pointer;
-
-
+            background-color: #00eeff; 
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             & img {
-                width: 30px;
-                margin-top: 4px;
-                cursor: pointer;
+                width: 20px;
             }
 
             &:hover {
-                background-color: #beff1b;
+                background-color: #00c4ff;
+                transform: scale(1.1);
+                box-shadow: 0 0 15px #00eeff; 
+            }
+
+            &:nth-child(1) {
+                & img {
+                    transform: scale(-1);
+                }
             }
         }
     }
 
-
-    .indicators {
+    & .indicators {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -189,10 +222,10 @@ section {
         justify-content: end;
         gap: 15px;
 
-
         & .numeros {
             font-size: 5em;
             font-family: "League Gothic", sans-serif;
+            color: #00eeff;
         }
 
         & ul {
@@ -202,30 +235,31 @@ section {
             & li {
                 width: 50px;
                 height: 5px;
-                background-color: #beff1b;
+                background-color: rgba(0, 238, 255, 0.4); 
                 border-radius: 5px;
                 transition: 0.5s;
-            }
+                cursor: pointer;
 
-
-            & .active {
-                background-color: #fff;
+                &.active {
+                    background-color: #00eeff; 
+                    box-shadow: 0 0 10px #00eeff;
+                }
             }
         }
     }
 }
 
-/* animações */
+/* Animações */
 section {
     & .list {
         --calculation: 1;
+
         & .item {
-            transform: translateX(calc(100vw *var(--calculation)));
+            transform: translateX(calc(100vw * var(--calculation)));
             transition: 0.5s;
             opacity: 0;
 
             & .car-img {
-
                 & img {
                     transform: rotate(0);
                     transition: 0.5s;
@@ -235,11 +269,10 @@ section {
 
             & .content {
 
-
                 & .car-information,
-                h2,
-                .description,
-                .information {
+                & h2,
+                & .description,
+                & .information {
                     transform: translateX(calc(200px * var(--calculation)));
                     transition: 0.7s;
                     transition-delay: 0.3s;
@@ -258,31 +291,27 @@ section {
                     transition-delay: 0.9s;
                 }
             }
-        }
 
-        & .entrar {
-            transform: translateX(0);
-            transition: 0.5s;
-            opacity: 1;
+            &.entrar {
+                transform: translateX(0);
+                transition: 0.5s;
+                opacity: 1;
 
-
-
-            & .car-img {
-
-                & img {
-                    transform: rotate(-20deg);
+                & .car-img {
+                    & img {
+                        transform: rotate(-20deg);
+                    }
                 }
-            }
 
-            & .content {
+                & .content {
 
-
-                & .car-information,
-                h2,
-                .description,
-                .information {
-                    transform: translateX(0);
-                    opacity: 1;
+                    & .car-information,
+                    & h2,
+                    & .description,
+                    & .information {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
                 }
             }
         }
